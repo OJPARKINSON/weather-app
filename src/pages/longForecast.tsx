@@ -3,7 +3,7 @@ import { Input } from "baseui/input";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import ForecastBody from "../components/ForecastBodt";
+import ForecastBody from "../components/ForecastBody";
 
 const Locations = [
   {city: "London", country: "UK"}, 

@@ -4,8 +4,8 @@ import {useStyletron} from 'baseui';
 import { Table } from "baseui/table-semantic";
 import {Heading, HeadingLevel} from 'baseui/heading';
 
-import useFetch from "../components/useFetch"
-import ErrorCard from "../components/ErrorCard"
+import useFetch from "./useFetch"
+import ErrorCard from "./ErrorCard"
 
 interface ForecastBodyProps {
   filterMaxTemp: string
@@ -24,7 +24,7 @@ interface ForecastBodyProps {
 
 // I would much rather have the backend do this logic
 const transformData = (data: any, filterMaxTemp: string, filterMinTemp: string) => {
-  return data.reduce((acc: any, { datetime, temp, weather, min_temp, max_temp }: ForecastBodyProps) => {
+  return data?.reduce((acc: any, { datetime, temp, weather, min_temp, max_temp }: ForecastBodyProps) => {
     acc.push([
       datetime.replace(/(\d{4})\-(\d{2})\-(\d{2})/, '$3/$2'), 
       Math.round(temp)+"°C", 
@@ -43,7 +43,7 @@ const transformData = (data: any, filterMaxTemp: string, filterMinTemp: string) 
 const ForecastBody = ({city, country, filterMaxTemp, filterMinTemp}: ForecastBodyProps) => {
   const [css] = useStyletron();
   const {
-    data = { city_name : "", data: {}},
+    data,
     isLoading,
     hasError,
     errorMessage,
@@ -59,10 +59,10 @@ const ForecastBody = ({city, country, filterMaxTemp, filterMinTemp}: ForecastBod
       <Heading>{data?.city_name}</Heading>
     </HeadingLevel>
     <div className={css({display: "grid"})}>
-    <Table
+    {data && <Table
       columns={["Date", "Temprature", "Max Temprature", "Min Temprature", "Description"]}
       data={transformData(data?.data, filterMaxTemp, filterMinTemp)}
-    />
+    />}
     </div>
     </>
   )

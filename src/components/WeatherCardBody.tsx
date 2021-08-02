@@ -11,7 +11,7 @@ interface WeatherCardBodyProps {
   }
 }
 
-const WeatherCardBody = ({ timezone, temp, weather, min_temp, max_temp }: WeatherCardBodyProps) => (
+const WeatherCardBody = ({ timezone, temp, weather }: WeatherCardBodyProps) => (
   <>
     {timezone && <StyledTitle>City: {timezone}</StyledTitle>}
     <StyledBody>Temprature: {Math.round(temp)}°C</StyledBody>
