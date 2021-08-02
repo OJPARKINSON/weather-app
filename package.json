@@ -11,6 +11,7 @@
     "@types/styletron-react": "^5.0.3",
     "@types/styletron-standard": "^2.0.2",
     "baseui": "^10.0.0",
+    "dotenv": "^10.0.0",
     "gatsby": "^3.10.2",
     "gatsby-plugin-gatsby-cloud": "^2.10.0",
     "gatsby-plugin-image": "^1.10.1",
