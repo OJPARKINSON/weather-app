@@ -12,7 +12,7 @@ const useFetch = (params = "") => {
       if (data != null) return
       setIsLoading(true)
       try {
-        const response = await fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/v2.0${params}&key=${process.env.APIKEY}`)
+        const response = await fetch(`${url}${params}&key=${process.env.APIKEY}`)
         const result = await response.json()
         console.log(result, response)
         if (response.ok) {

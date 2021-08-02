@@ -15,8 +15,6 @@ const WeatherCardBody = ({ timezone, temp, weather, min_temp, max_temp }: Weathe
   <>
     {timezone && <StyledTitle>City: {timezone}</StyledTitle>}
     <StyledBody>Temprature: {Math.round(temp)}°C</StyledBody>
-    <StyledBody>Max Temprature: {max_temp}°C</StyledBody>
-    <StyledBody>Min Temprature: {min_temp}°C</StyledBody>
     <StyledBody>Description: {weather?.description}</StyledBody>
   </>
 )
