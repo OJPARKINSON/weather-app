@@ -11,6 +11,7 @@ import { StyledLink } from "baseui/link"
 import { Client as Styletron } from "styletron-engine-atomic"
 import { Provider as StyletronProvider } from "styletron-react"
 import { LightTheme, BaseProvider } from "baseui"
+import {Block} from 'baseui/block';
 
 interface HeaderProps {
   siteTitle: string
@@ -59,7 +60,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
                   }}
                   to="/longForecast/"
                 >
-                  16 day forecast
+                  Extended forecast
                 </Link>
               </StyledLink>
             </StyledNavigationItem>

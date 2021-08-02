@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const useFetch = (url = "", skip = false) => {
+const useFetch = (params = "") => {
   const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -8,17 +8,13 @@ const useFetch = (url = "", skip = false) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (skip) return
+      const url = "https://api.weatherbit.io/v2.0";
+      if (data != null) return
       setIsLoading(true)
       try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            "x-rapidapi-key": process.env.RAPIDAPIKEY,
-            "x-rapidapi-host": process.env.RAPIDAPIHOST,
-          },
-        })
+        const response = await fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/v2.0${params}&key=${process.env.APIKEY}`)
         const result = await response.json()
+        console.log(result, response)
         if (response.ok) {
           setData(result)
         } else {
