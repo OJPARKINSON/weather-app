@@ -12,7 +12,7 @@ const useFetch = (params = "") => {
       if (data != null) return
       setIsLoading(true)
       try {
-        const response = await fetch(`${url}${params}&key=${process.env.APIKEY}`)
+        const response = await fetch(`${url}${params}&key=e385b0c417dd40c79b23b5d2591dc8b6`)
         const result = await response.json()
         console.log(result, response)
         if (response.ok) {
