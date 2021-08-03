@@ -8,11 +8,10 @@ const useFetch = (params = "") => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = "https://api.weatherbit.io/v2.0";
       if (data != null) return
       setIsLoading(true)
       try {
-        const response = await fetch(`${url}${params}&key=e385b0c417dd40c79b23b5d2591dc8b6`)
+        const response = await fetch(`https://api.weatherbit.io/v2.0${params}&key=e385b0c417dd40c79b23b5d2591dc8b6`)
         const result = await response.json()
         console.log(result, response)
         if (response.ok) {
